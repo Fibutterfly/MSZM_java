@@ -35,6 +35,25 @@ public class becsapos {
         System.out.println(QR1_s);
         System.out.println(LUD2_s);
         System.out.println(QR2_s);
+
+        RealMatrix coef3 = new Array2DRowRealMatrix(new double[][] {{ 888445, 887112 }, {887112,888445}},false);
+        RealVector const3 = new ArrayRealVector(new double[]{0,0},false);
+        DecompositionSolver LUD3 = new LUDecomposition(coef3).getSolver();
+        DecompositionSolver QR3 = new QRDecomposition(coef3).getSolver();
+        RealVector LUD3_s = LUD3.solve(const3);
+        RealVector QR3_s = QR3.solve(const3);
+        System.out.println("---------------------------------");
+        System.out.println(LUD3_s);
+        System.out.println(QR3_s);
+        for (double szam : LUD3_s.toArray()) {
+            String rtn = String.format("%.2e", szam);
+            System.out.print(rtn + "\t");
+        } 
+        System.out.println("");
+        for (double szam : QR3_s.toArray()) {
+            String rtn = String.format("%.2e", szam);
+            System.out.print(rtn + "\t");
+        } 
     }
 
 }
