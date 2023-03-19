@@ -37,7 +37,7 @@ public class becsapos {
         System.out.println(QR2_s);
 
         RealMatrix coef3 = new Array2DRowRealMatrix(new double[][] {{ 888445, 887112 }, {887112,888445}},false);
-        RealVector const3 = new ArrayRealVector(new double[]{0,0},false);
+        RealVector const3 = new ArrayRealVector(new double[]{1,0},false);
         DecompositionSolver LUD3 = new LUDecomposition(coef3).getSolver();
         DecompositionSolver QR3 = new QRDecomposition(coef3).getSolver();
         RealVector LUD3_s = LUD3.solve(const3);
